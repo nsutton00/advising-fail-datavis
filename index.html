@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Is McGill advising failing its students? | McGill Tribune</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="index.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <!-- <link href='https://fonts.googleapis.com/css?family=Playfair+Display|Roboto+Condensed:700' rel='stylesheet' type='text/css'> -->
+	</head>
+    	<body>
+    <!---
+    <header>
+      <nav class="navHeader">
+        <a href="" class="logo"><img src="TribunePhotoWatermark.png" width="80" height="80"></a>
+        <h3>Features/ The McGill Tribune</h3>
+      </nav>
+    </header> ---> 
+    <main>
+		<div class="container-fluid">
+			<div class="row headerimage">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="title-b">
+                        <img class="img-responsive" src="headerimage.JPG">
+						<h1 class="headline">Is McGill advising failing<br>its students?</h1>
+                        
+					</div>
+					<div class="authdate">
+						<i>Audrey Carleton</i><br>
+						<i>September 19th, 2017</i>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+                <span ></span>
+                <div class="col-md-12 bodytext" style="margin-top:22px;"><p>
+                    On a sticky afternoon in early September, students lined the walls outside their faculty or department’s academic advising offices, clutching their phones, refreshing Minerva spastically, hoping for empty spots in their required courses that they can quickly grab. It’s a scene many students know all too well during the biannual add-drop period, when they are often fraught with anxieties and annoyances over last-minute changes to their schedule and program. On top of this, the first people they’d think to turn to—their academic advisors—are often overburdened and the least available to help.</p>
+                    <p>
+					“I remember going [to advising] a lot first year and not being able to get appointments,” Emily Levine, U3 Arts, said. “I talked to people at the front desk who are students who are hired, who try to be really helpful but [...if they couldn’t answer my question] I’d be sent somewhere else, and of course during drop add period all of the drop-in [slots] fill up within five minutes or so, and especially as a first year, not knowing where things were, not knowing how the system worked, really needing to advocate for myself, but also not really knowing what I [wanted], it was really stressful.”</p>
+                    <p>
+					Levine’s experience navigating the world of advising in first year reflects an all-too-common narrative among the student body. Unsurprisingly, she is not alone in her frustrations. In a survey of McGill students conducted by <i>The McGill Tribune</i> in August and September 2017, 41 per cent of respondents reported receiving less attention than they wanted from their advising offices upon stopping by in person during normal times of the year. Worse, 51 per cent of respondents claimed to receive insufficient attention during the add-drop period, when the number of students seeking assistance reaches its peak.</p>
+				</div>
+			</div>
+            <!--- To what extent did you feel that you received the attention you needed?--->
+            <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+            <h3>To what extent did you feel that you received the attention you needed?</h3>    
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-md-offset-2 chart" id="attentionBarChart">
+                <canvas id="attentionBar"></canvas></div>
+            </div>
+			<div class="row">
+				<div class="col-md-12 bodytext">
+					<p>In an anonymous feedback field included within the survey, respondents divulged their primary frustrations with their faculty’s advising offices. One anonymous respondent cited their experiences being shuffled between different advising offices upon trying to get their questions answered, while another admitted to never having visited their faculty’s advising office because of the hassle involved. Two students acknowledged that their annoyance with advising lies primarily in the inefficiency of the advising system as a whole, rather than with any individual advisors.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 bodytext">
+					<p>The root cause of students’ frustration over receiving inadequate attention is the lack of sufficient funding and resources allocated to each advising office. When several thousand students are divided up among a handful of advisors per faculty, as is the case at McGill, it’s inevitable that the goal to serve as many students in the shortest amount of time possible supersedes the quality of the service provided. The Desautels Faculty of Management operates with an advisor-to-student ratio of one to 510, while the Faculty of Engineering and Science run daily with one advisor for every 784 and 799 students, respectively. The Faculty of Arts scrapes by with a ratio of one advisor for every 1,286 students. Regardless of advisors’ best efforts to give thorough advice in an efficient manner to students, advising offices at McGill become overwrought early into the semester, leaving a large fraction of students with unanswered questions and neglected course requirements.</p> 
+				</div>
+			</div>
+            
+            
+            <!-- advisor student ratios--> 
+            <div class="ratioContainer">
+            <div class="row">
+            <div class="col-md-66 col-md-offset-3">
+            <h3 class="center">Ratio of Students to Advisors</h3>    
+            </div>
+            </div>       
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3" style="display:inline-bll">
+            <h4>Faculty of Management</h4>
+            <div style="display:inline;">
+            <p id="scatterMng" class="ratioDots"></p></div>
+            <h3 class="ratioText" style="float:right;color:#f7c1b7;">1:510</h3>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+            <h4>Faculty of Engineering</h4>
+            <p id="scatterEng" class="ratioDots"></p>
+            <h3 class="ratioText" style="float:right;color:#f3a293;">1:784</h3>
+            </div>
+            </div>
+                
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+            <h4>Faculty of Science</h4>
+            <p id="scatterSci" class="ratioDots"></p>
+            <h3 class="ratioText" style="float:right;color:#ef836e;">1:799</h3>
+                </div>
+            </div>
+                
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+            <h4>Faculty of Arts</h4>
+            <p id="scatterArts" class="ratioDots"></p>
+            <h3 class="ratioText" style="float:right;color:#ec644b;">1:1286</h3>
+            </div>
+            </div>        
+                
+        
+            </div>
+			<div class="row">
+				<div class="col-md-12 bodytext topdiv" id="visible">
+					<p>These jarring institutional inadequacies can also force McGill students to sit through long wait times, regardless of how short or simple their questions may be. Survey respondents reported waiting in line at their faculty’s advising office for an average of 11 minutes on typical school days, and 17 minutes during the add-drop period. But for Shayan Mantegh, U4 Engineering, visiting his faculty’s advising office—a routine he’s grown used to at the start of each semester—typically requires waiting far longer than reported averages.</p><p>
+					“[To get advising,] you’re gonna have to sit by the door [to McGill Engineering Student Centre] for four or five hours,” Mantegh said. “Last year for registration I was there from 2 to 7 p.m. just waiting to ask a very simple question [...]. It’s frustrating at a certain level, and I think it’s hard to know that every time you register, you know you’re gonna have to spend at least a full day just sitting in an office waiting to ask a two-minute question.”</p>
+				</div>
+			</div>
+            <!-- waiting time --> 
+            
+
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+            <h3>Average wait times to see an advisor</h3>    
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3 chart" id="topdiv">
+            <canvas id="waitingTimes"></canvas>
+            </div>
+                
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+            <h3 class="waitTimeText">Most commonly reported wait time during add/drop: <span style="color:#EB9532;">25+ minutes.</span></h3>  
+            <h3 class="waitTimeText">Most commonly reported wait time outside add/drop: <span style="color:#EB9532;">0-5 minutes.</span></h3>
+            </div>
+            </div>
+            <div class="row">
+				    <div class="col-md-12 bodytext">
+					<p>McGill’s advising offices are not alone in struggling to serve all of their students. In a separate survey of advising offices at 39 universities across Canada including major national institutions conducted by <i>The McGill Tribune</i> in August and September 2017, faculty- and department-specific advising offices reported student-to-advisor ratios of one to 443, on average. Though all of McGill’s largest faculties tend to have a larger number of students with fewer advisors than the national average, a large portion of advisors at other universities reported feeling overwhelmed with the number of students for which they are responsible. Among all respondents, 44 per cent of advisors in Canada described the number of students visiting during the add-drop period as “unmanageable” or “very unmanageable”—though it’s worth noting that only 5 per cent of advisors considered this volume of students to be “unmanageable” or “very unmanageable” during other times of the school year.</p><p>
+					Many of these inefficiencies are out of the hands of individual advisors, who do their best to remain thoughtful and courteous to all students who walk through their doors. In fact, when asked to characterize the quality of help they had received from academic advisors, the majority of McGill students classified the assistance they’d received during the add-drop period positively, with “Very helpful” (13 per cent), “Helpful” (35 per cent), or “Okay” (30 per cent), representing 78 per cent of respondents. Outside the add-drop period, 27 per cent of students found their advising appointments to be “Very helpful,” while 23 per cent characterized their assistance as “Helpful” and an equal proportion considered it “Okay.”</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 bodytext">
+					<p>“I’ve never had an advisor who was mean, or cold, or unwelcoming, or specifically trying not to help me, but I think [what overwhelms and frustrates me is] the system,” Levine said. “Everyone that I’ve gone to, I find, is trying really [hard] to be helpful and they’re doing their best, but it’s impossible for one person to have all of that knowledge and all of that access if you need to change things, and so I’m often redirected to someone else and then one question becomes, like, a three-stop kind of thing.”</p><p>
+                    Many advisors at universities across Canada anonymously echoed students’ discontent toward institutional failures in their survey responses. Two advisors pointed to the failures of online systems to communicate academic information to students, while several advisors highlighted a need for structured peer-to-peer advising. The most common suggestion from advisors was to hire more advisors; a solution that seems simple at face value, but may be infeasible without major budgetary considerations.</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-md-offset-2"><h3 class="pullquote">“Everyone that I’ve gone to, I find, is trying really hard to be helpful and they’re doing their best, but <span class="underline">it’s impossible for one person to have all of that knowledge and all of that access</span>"</h3></div>
+            </div>
+            <div class="row">
+            <div class="col-md-6 col-md-offset-3 chart"><h3>How advisors at other Canadian universities, characerized their work loads during add/drop.</h3><canvas id="otherUnis"></canvas></div>    
+            </div>
+			<div class="row">
+				<div class="col-md-12 bodytext">
+					<p>The consequences of poor academic advising go beyond the sheer day-to-day annoyances of long lines and crowded offices. For many students, having a support system they can turn to when making major academic decisions is key to ensuring their success at McGill. Fiona McRaith, U4 Arts, learned this the hard way in her first year, when she unknowingly registered for a roster of rigorous courses that didn’t suit her interests, coming out on the other side with a bruised GPA and a lack of concern from her advisors.</p> 
+					<p>“First year I would say that I was stumbling around a lot,” McRaith said. “I took classes that [...] there was no reason I should’ve been in [...] they were difficult and they didn’t relate to my interests at all, and I ended up failing one of them [.... No] advisor ever was like, ‘Hey we see that you failed a class is everything okay?’ or like, ‘How are you doing? This was your first semester at university.’ I wouldn’t have been in those classes if someone had sat down with me and said ‘So what are you hoping to achieve?’ and ‘What are your interests?’ and ‘What are your academic strengths? How can we start you off on a really strong foot at McGill?’”</p><p>
+						Many of the consequences of poor advising can follow students through the end of their degree, such that it’s not uncommon for students to find out shortly before their anticipated graduation date that they’re short a few credit requirements. This leaves students with no choice but to take extra time at McGill and to empty their pockets of extra tuition money.</p><p>
+						“In the sheer volume of it, like how many classes McGill has and how big the classes are, it’s not a surprise to me that a lot of people get to their last semester and are like ‘I have to take three more classes? I had no idea,’” Levine said. “No one tells you if you’re not doing it right.”</p><p>
+						To cover the areas where academic advising falls short, many students at McGill turn to informal peer networks and self-made solutions for giving and receiving academic advice. On faculty- and program-specific Facebook groups, as well as wider groups like “<a href="https://www.facebook.com/groups/mcgilleasyclasses/">McGill Easy Classes for Electives</a>”, or websites like <a href="http://www.ratemyprofessors.com/">ratemyprofessors.com</a>, students seek and share insight into the quality and difficulty of well-known courses and professors. Individual students have also taken it into their own hands to build online applications like <a href="https://getaseat.ca/">getaseat.ca</a> and the <a href="https://vsb.mcgill.ca/vsb/criteria.jsp">Visual Schedule Builder</a>—a program initially launched by students at Concordia—to help their classmates plan out and successfully register for all of their courses. If there’s one token of optimism borne out of this lack of institutional support, it’s the sense of self-sufficiency that figuring out one’s program on their own creates.</p> 
+						<p>
+						“If I had gone to school in the States and paid three times as much, I would’ve had a faculty advisor assigned to me that I met with once a month,” Levine said. “And advising lines wouldn’t be as crazy, but also, learning to deal with this has helped me [...] deal with [real-life problems, like] landlords who are unresponsive or Wi-Fi companies who charge me three times as much. All of this terrible administrative stuff is a reflection of real life. However, the system [at McGill] is [still] flawed.”</p>
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-3 surverytext" style="color: grey;">
+                        <h4>About the Surveys:</h4> 
+						<p>Both student and advisor surveys referenced in this article do not meet scientific standards.</p><p>
+						The survey sent to advising offices at Canadian universities was conducted using Google Forms and included a combination of multiple-choice, Likert scale, and open-ended questions on the capabilities of advising offices to serve the number of students in need. Advisors were also asked to report the number of enrolled students that their office serves and the number of employed advisors. At the end of the survey, respondents were also asked to provide anonymous suggestions for ways in which their university could better support advising services and students in need.</p><p>
+						Prior to the advisor-data-collection period, the author visited the websites of every at-large and faculty-specific advising office at every four-year undergraduate degree-granting university in Canada, excluding colleges and other technical institutions. Here, she searched for the email addresses for individual advisors and at-large addresses for the advising office, and then emailed a link to her survey to every email address located over the course of three weeks at the end of August and beginning of September. Each advising office was asked to designate one staff member to complete the survey one time. The author inevitably missed some advising offices in her pursuits due to human error or a lack of information available online, though she tried in good faith to contact every one. In total, staff representing 39 advising offices responded to the survey. Several advising offices refused to take the survey, citing a lack of time during the overwhelm of the first few weeks of school, which overlapped with a large portion of the data-collection period.</p><p>
+						The anonymous survey distributed among the McGill student body was also conducted using Google Forms, and included a combination of multiple-choice, Likert scale, and open-ended questions about student experiences with their faculty or department’s advising offices. At the end of the survey, respondents were also asked to provide anonymous anecdotes about particularly positive or negative experiences they have had with their faculty’s advising office.</p><p> 
+						During the student-data-collection period, the author posted the link to her survey to various McGill community groups on Facebook over the course of two weeks from the end of August to the start of September. In total, 49 students responded to the survey.</p>
+				</div>
+            </div>          
+</div>		
+</main> 
+<script src="chartdata.js"></script>
+</body>
+</html>
+            
+    

@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'freightbig_bold';
+    src: url('fonts/freight_big_bold-webfont.woff2') format('woff2'),
+    url('fonts/freight_big_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body { 
+    max-width: 100%; 
+    overflow-x: hidden; 
+}
+.navHeader{
+    position: fixed;
+    display: inline-flex;
+    top: 0;
+    width: 120px;
+    height: 120px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #1c3350;
+    z-index: 100;
+    overflow: hidden;
+}
+.navHeader h3{
+    padding-left: 25px;
+    color: white;
+    white-space: nowrap;
+    font-size: 3em;
+    font-family: 'freightbig_bold';
+}
+.navHeader:hover{
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    width: 40%;
+}
+a{
+    color: #4B77BE;
+}
+a:hover{
+    text-decoration: none;
+}
+.headerimage{
+    position: relative;
+    text-align: center;
+    color: white;
+    padding-top: 3em;
+    margin: 0 auto;
+}
+body{
+    background-color: #fcfcfc;
+}
+.headline{
+    font-family: 'freightbig_bold';
+    font-size: 6em;
+    position: absolute;
+    text-align: left;
+    bottom: 50px;
+    left: -160px;
+    color: black;
+    background-color: white;
+    line-height: 90%;
+}
+.authdate{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 10px;
+    left: -155px;
+    color: black;
+    text-align: left;
+}
+.bodytext p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    width: 45%;
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.surverytext p{
+    width: 80%;
+    font-size: 0.9em;
+}
+h3{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+}
+.chart{
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.center{
+    margin: 0 auto;
+}
+/* ratio style*/
+.ratioContainer{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.ratioDots{
+    width: 100%;
+    margin: 0 auto;
+}
+.dotContainer p{
+    display: inline;
+}
+.ratioText{
+    text-align: center;
+    font-family: 'freightbig_bold';
+    font-size: 3.2em;
+}
+.waitTimeText{
+    padding-top: 30px;
+   text-align: center;
+    font-family: 'freightbig_bold';
+    color: #4B77BE;
+    font-size: 3em;
+}
+.advisordot{
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    margin-right: 2px;
+    background-color: #EC644B;
+    border-radius: 50%;
+}
+.dot {
+    height: 5px;
+    width: 5px;
+    margin-right: 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+.pullquote{
+    font-family: 'freightbig_bold';
+    color: #4B77BE;
+    font-size: 3em;
+    background: -webkit-linear-gradient( #698ec9, #365b96);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* media queries */
+/*tablet  */
+@media screen and (max-width: 1100px){
+  .headline{
+    font-size: 4.5em;
+    left: 0px;
+    bottom: 50px;
+    } 
+.authdate{
+    font-size: 1.2em;
+    position: absolute;
+    color: white;
+    bottom: 5px;
+    left: 20px;
+    }
+.bodytext p{
+    width: 75%;
+}
+}
+/*phone <=700px */
+@media screen and (max-width: 500px) {
+    h3{
+    font-size: 1.8em;    
+    }
+    .headline{
+    font-size: 2em;
+    left: 0px;
+    bottom: 35px;
+    }
+    .authdate{
+    font-size: 0.8em;
+    position: absolute;
+    color: white;
+    bottom: 5px;
+    left: 15px;
+    }
+    .bodytext p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    width: 80%;
+    }
+    .waitTimeText{
+    padding-top: 0px;
+    font-size: 1.8em;
+    }
+    .pullquote{
+    font-size: 2em;
+    width: 70%;
+    }
+}
+
