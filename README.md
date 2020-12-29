@@ -1,2 +1,3 @@
-# advising-fail-datavis
-Originally completed in 2018, this is a redesign of an earlier McGill Tribune feature article, with stronger emphasis on data visualization
+# Is McGill advising failing its students? - McGill Tribune Feature Redesign
+
+This article was originally written by Audrey Carleton and published on September 19th, 2017. Later, in 2018 I redesigned the online edition of the piece to create a stronger and more elegant emphasis on the data visualization using Chart.js.
